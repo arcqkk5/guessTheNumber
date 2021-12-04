@@ -19,18 +19,10 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guessingNumber > 20 || guessingNumber < 1) {
     document.querySelector('.guess-message').textContent =
       'Введите число от 1 до 20 включительно!';
-  } else if (guessingNumber > secretNumber) {
+  } else if (guessingNumber !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.guess-message').textContent = 'Эхх..Много';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.guess-message').textContent = 'Вы проиграли(';
-      document.querySelector('.score').textContent = 0;
-    }
-  } else if (guessingNumber < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.guess-message').textContent = 'Эхх..Мало';
+      document.querySelector('.guess-message').textContent =
+        guessingNumber > secretNumber ? 'Эхх.. Много(' : 'Эхх.. Мало(';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
